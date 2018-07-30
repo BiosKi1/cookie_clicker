@@ -9,6 +9,9 @@
 export default {
   name: "counter",
   computed:{
+    products: function ()  {
+      return this.$store.state.products
+    },
     cookieCounter:{
         get:function(){
             return Math.round(this.$store.state.countTotal)
@@ -17,7 +20,15 @@ export default {
   },
   methods: {
     increment() {
-      this.$store.commit("COOKIE_CLICK")
+        let cookieCl = 0
+        for(let p of this.products)
+        {
+            if(p.id == 1)
+            {
+                cookieCl += p.cps
+            }
+        }
+        this.$store.commit("COOKIE_PRODUCED", { cookies : cookieCl })
     }
   }
 };

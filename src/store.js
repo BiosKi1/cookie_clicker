@@ -13,9 +13,6 @@ export default new Vuex.Store({
     upgrades: upgrades
   },
   mutations: {
-      COOKIE_CLICK(state) {
-          state.countTotal++
-      },
       COOKIE_PRODUCED(state, { cookies }){
           state.countTotal += parseInt(cookies)
       },
